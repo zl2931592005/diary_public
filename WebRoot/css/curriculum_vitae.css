@@ -1,0 +1,9 @@
+body{
+	/* 使用了背景图的方式进行了body的背景修饰 */
+	background-image: url("../image/background_image3.gif");
+	/* body的外间距调为0px */
+	margin: 0;
+/* 	background-size: 100% 100%; */
+
+}
+

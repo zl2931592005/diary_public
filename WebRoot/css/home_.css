@@ -1,0 +1,13 @@
+td{
+	width: 100px;
+	height: 50px;
+}
+
+select{
+	padding-bottom: 3px; 
+}
+
+textarea{
+	resize: none;
+	font-size: 36px;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dog.diary.dao.mapper.DiaryDaoInte">
+
+	<update id="edit_diary" parameterType="Diary">
+		update diary set
+		diary = #{diary},sum_cause = #{sum_cause}
+		where user_id = #{user_id} and date = #{date}
+	</update>
+
+	<insert id="add_diary" parameterType="Diary">
+		insert into diary values(null,#{diary},#{date},#{user_id},#{sum_cause});
+	</insert>
+	
+	<select id="diary_yesorno" resultType="Diary">
+		select * from diary
+		where
+		date = #{0} and user_id = #{1}
+	</select>
+	
+	<select id="select_diary" resultType="Diary">
+		select * from diary
+		where
+		user_id = #{user_id} order by id desc
+	</select>
+	
+	<select id="find_diary" resultType="Diary">
+		select * from diary
+		where
+		user_id = #{1} and date = #{0}
+	</select>
+	
+	<select id="search" resultType="Diary">
+		select * from diary
+		where
+		date = #{0} and user_id = #{1} order by id desc
+	</select>	
+</mapper>

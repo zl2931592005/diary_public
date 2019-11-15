@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dog.diary.dao.mapper.CauseDaoInte">
+	
+	<insert id="edit" parameterType="java.util.List">
+		insert into cause values
+		<foreach collection="list" item="cause" index="index" separator="," close=";">
+			(null,#{cause.cause},#{cause.money},#{cause.manner},#{cause.date},#{cause.user_id})
+		</foreach>
+	</insert>
+	
+	<delete id="edit_old">
+		delete from cause
+		where
+		date = #{1} and user_id = #{0}
+	</delete>
+	
+	<select id="find_cause" resultType="Cause">
+		select * from cause
+		where
+		date = #{0} and user_id = #{1}		
+	</select>
+	
+	
+	<insert id="add_cause" parameterType="java.util.List">
+		insert into cause values
+		<foreach collection="list" item="cause" index="index" separator="," close=";">
+			(null,#{cause.cause},#{cause.money},#{cause.manner},#{cause.date},#{cause.user_id})
+		</foreach>
+	</insert>
+	
+	<select id="select_cause" resultType="Cause">
+		select * from cause
+		where user_id = #{user_id}
+		order by id desc
+	</select>
+	
+	<select id="search_consume" resultType="Cause">
+		select * from cause
+		where user_id = #{1} and date = #{0}
+		order by id desc
+	</select>
+	
+</mapper>
